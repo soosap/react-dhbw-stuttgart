@@ -25,7 +25,7 @@ module.exports = {
       loader: "html-loader!markdown-loader?gfm=false"
     }, {
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: /(node_modules|GameChanger)/,
       loader: "babel-loader",
       query: {
         presets:['react', 'es2015'],
