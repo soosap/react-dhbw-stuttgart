@@ -79,12 +79,6 @@ export default class Presentation extends React.Component {
 		};
 	}
 
-
-	// onChangeTime = (dateString, { dateMoment, timestamp }) => {
-	// 	console.log(dateString);
-	// 	this.setState({ date: dateString });
-	// };
-
   render() {
     return (
       <Spectacle theme={theme}>
@@ -148,11 +142,21 @@ export default class Presentation extends React.Component {
 
 							<Appear>
 								<ListItem>
-									Learn once, make use of it everywhere!
-									<Image src={images.learn_once.replace("/", "")} margin="20px auto 0 100px" width="50%" />
+									Lighting fast through Virtual DOM diffing
 								</ListItem>
 							</Appear>
 
+							<Appear>
+								<ListItem>
+									Learn once, make use of it everywhere!
+								</ListItem>
+							</Appear>
+
+							<Appear>
+								<ListItem>
+									Easy to get started... yet scalable to massive complexity
+								</ListItem>
+							</Appear>
 						</List>
 					</Slide>
 
