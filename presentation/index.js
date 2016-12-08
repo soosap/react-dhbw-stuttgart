@@ -67,9 +67,10 @@ export default class Presentation extends React.Component {
 
 					<Slide transition={["slide"]} bgImage={images.who.replace("/", "")} />
 
-          <Slide>
-            <Quiz />
-          </Slide>
+					<Slide bgColor="secondary">
+						<Heading fit>The Evolution of the Web</Heading>
+						
+					</Slide>
 
           <Slide
             transition={["fade"]}
