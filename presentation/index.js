@@ -30,6 +30,7 @@ import createTheme from "spectacle/lib/themes/default";
 
 // Import custom component
 import Interactive from "../assets/interactive";
+import Quiz from "../components/Quiz.jsx";
 
 // Require CSS
 require("normalize.css");
@@ -38,15 +39,19 @@ require("spectacle/lib/themes/default/index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
+  dhbw: require("../assets/dhbw.png"),
   kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  markdown: require("../assets/markdown.png"),
+  who: require("../assets/who_reacts.png"),
+  react: require("../assets/react_logo.png")
 };
 
 preloader(images);
 
 const theme = createTheme({
-  primary: "#ff4081"
+  primary: "#FBBD08",
+  secondary: "#2C2C2C"
 });
 
 export default class Presentation extends React.Component {
@@ -54,6 +59,88 @@ export default class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={4} fit caps lineHeight={1} textColor="secondary">The Power of</Heading>
+            <Image src={images.react.replace("/", "")} margin="40px auto 40px -10%" width="120%" />
+	          <Image src={images.dhbw.replace("/", "")} width="100%" />
+          </Slide>
+
+					<Slide transition={["slide"]} bgImage={images.who.replace("/", "")} />
+
+          <Slide>
+            <Quiz />
+          </Slide>
+
+          <Slide
+            transition={["fade"]}
+            bgColor="secondary"
+            textColor="primary"
+            notes="<ul>
+              <li>Talk about how easy it is to get started with React</li>
+              <li>and that</li>
+              <li>and that</li>
+            </ul>"
+          >
+            <List>
+              <ListItem>
+                Small learning curve
+              </ListItem>
+              <Appear>
+                <ListItem>
+                  React is super agile and fast!
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  React speaks the syntax of JSX
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Large community and ecosystem
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide>
+            <List>
+              <ListItem>
+                React components can have internal state.
+                They have the markup or presentation concerns inside the components.
+                No separation between view model and a template. It's all in one.
+                Javascript is mixed right into the HTML.
+                React allows you to hook into events or lifecycle methods.
+              </ListItem>
+              <ListItem>
+                What the heck?
+                You have put HTML into my Javascript!?! Are you crazy.
+                What about separation of concerns?
+                React is challenging what we have accepted as best practice for a long time.
+
+                With React you can now extract bits of markup into variables.
+              </ListItem>
+              <ListItem>
+                Web development 10yrs ago was much easier.
+                No change of state over time.
+
+                With React you render your initial app.
+                You then listen to events and trigger event handlers as certain things occur.
+                What does that really mean? It means that your initial state changes, it evolves over time.
+                In a modern web application you want to listen to these events and update your UI to
+                immediately reflect the new reality, i.e. the new state of the component.
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading>Virtual DOM</Heading>
+            <Markdown>
+              {`
+DOM Trashing: When we throw away the previous DOM every time we re-render the app...
+* we lose the scroll position
+* we lose any text we typed into forms
+              `}
+            </Markdown>
+          </Slide>
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="black">
               Spectacle
