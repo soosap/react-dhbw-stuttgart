@@ -13,7 +13,7 @@ const theme = createTheme({
 
 class Presentation extends React.Component {
   constructor(props) {
-    parent(props);
+    super(props);
 
     this.state = {
       datepicker: moment(new Date()),
